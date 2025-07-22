@@ -7,4 +7,14 @@ OmiImp provides four python files:
 * metric.py：the evaluation metrics are used to assess the performance of OmiImp.
 * model.py：the architecture of the OmiImp model is defined in this file.
 * train.py: the model undergoes training and testing, followed by performance evaluation using designated metrics.
-  
+
+## Try it out
+To train the OmiImp, users are required to provide
+- Input data modalities (source.csv and target.csv): These files are the main input to the model. They must be in .csv format and should contain rows as samples and columns as features, such as genes or SNPs. For example in ROSMAP: source.csv (samples as rows and SNPs as columns. The value represents either dosage or genotype) and target.csv (samples as rows and genes as columns). For example,the following screenshots show formats for input modality:
+- <p align="center" width="100%">
+    <img  src="https://github.com/daifengwanglab/DeepGAMI/blob/main/deepGAMI_inp1_format.png" >
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+    <img  src="https://github.com/daifengwanglab/DeepGAMI/blob/main/deepGAMI_intermediate_bio_layer.png" >
+</p>
+
+- Disease phenotype file (.csv file): This file should contain the labels for training the samples/cells in input modalities The labels column must be marked as "labels", and the sample/cell IDs as "individualID".
