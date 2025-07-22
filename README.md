@@ -9,12 +9,15 @@ OmiImp provides four python files:
 * train.py: the model undergoes training and testing, followed by performance evaluation using designated metrics.
 
 ## Try it out
-To train the OmiImp, users are required to provide
-- Input data modalities (source.csv and target.csv): These files are the main input to the model. They must be in .csv format and should contain rows as samples and columns as features, such as genes or SNPs. For example in ROSMAP: source.csv (samples as rows and SNPs as columns. The value represents either dosage or genotype) and target.csv (samples as rows and genes as columns). For example,the following screenshots show formats for input modality:
-- <p align="center" width="100%">
-    <img  src="https://github.com/daifengwanglab/DeepGAMI/blob/main/deepGAMI_inp1_format.png" >
-    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-    <img  src="https://github.com/daifengwanglab/DeepGAMI/blob/main/deepGAMI_intermediate_bio_layer.png" >
-</p>
+To train the OmiImp, users are required to provide:
+- Input data modalities (source.csv and target.csv): These files are the main input to the model. They must be in .csv format and should contain rows as samples and columns as features. For example in ROSMAP: source.csv (samples as rows and SNPs as columns. The value represents either dosage or genotype) and target.csv (samples as rows and genes as columns). The required data format for the model is specified in the _format.png file within the ROSMAP documentation.
+- Disease phenotype file (.csv file, optional): This file should contain the labels for training the samples/cells in input modalities. If provided, downstream prediction tasks can be performed to validate the model's utility.
 
-- Disease phenotype file (.csv file): This file should contain the labels for training the samples/cells in input modalities The labels column must be marked as "labels", and the sample/cell IDs as "individualID".
+To adapt OmiImp for custom datasets, users must modify the file loading statements in train.py to match their data columns.
+We provide a user-friendly implementation where simply running train.py will automatically train and test the OmiImp model：
+```python
+python train.py
+```
+Users can view the final test results directly in the terminal output.
+
+
